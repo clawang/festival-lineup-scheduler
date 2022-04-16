@@ -1,0 +1,266 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mont Heavy';
+  src: url('./fonts/Mont-HeavyDEMO.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mont Bold';
+  src: url('./fonts/Fontfabric---Mont-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('./fonts/Fontfabric---Mont-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sonder';
+  src: url('./fonts/SonderRegular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$yellow: rgba(244, 214, 163, 0.3);
+$dark-yellow: #f4d6a3;
+$pink: rgba(249,200,194, 0.5);
+$body-font: 'Poppins', sans-serif;
+$header-font: 'Mont Heavy', sans-serif;
+$accent-font: 'Sonder', serif;
+$selection-color: rgba(158,222,219, 0.5);
+$body-color: #3a3a3a;
+$accent-color: #097a88;
+$subtitle-color: #727078;
+
+html {
+	cursor: url(https://media-prd.coachella.com/content/coachella-2022/cursor.png),auto;
+}
+
+h1 {
+	font-family: $accent-font;
+	font-weight: 100;
+	font-size: 5em;
+}
+
+h2, h3, h4, {
+	margin: 0.1em 0;
+	font-family: $header-font;
+}
+
+p {
+	margin: 0.1em 0;
+	font-family: $body-font;
+}
+
+button {
+	padding: 12.5px 18px;
+	margin: 0 5px;
+	font-family: $body-font;
+	color: $body-color;
+	border: 2px solid $body-color;
+	background: transparent;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.background {
+	width: 100%;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+.content {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.day-header {
+	margin: 100px 0 20px 0;
+	text-align: center;
+}
+
+.nav-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 50px 0;
+}
+
+.lineup-wrapper {
+	display: flex;
+	margin: 20px auto;
+	width: 100%;
+	max-width: 1200px;
+	overflow-x: scroll;
+
+	.stage-wrapper {
+		margin: 0 10px;
+		width: 200px;
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+
+	.artist-wrapper {
+		border: 1px solid black;
+		padding: 10px;
+		margin: 10px 0;
+		cursor: pointer;
+
+		p {
+			font-size: 12px;
+		}
+	}
+}
+
+.selected {
+	background: $selection-color;
+}
+
+.schedule-wrapper {
+	width: 100%;
+	max-width: 800px;
+	margin: 20px auto;
+
+	.schedule-item-wrapper {
+		border: 1px solid black;
+		padding: 10px;
+		margin: 10px;
+
+		.schedule-item-location {
+			display: flex;
+			align-items:center;
+			color: $body-color;
+			
+
+			h4 {
+				font-family: 'Mont Bold';
+				font-weight: 200;
+			}
+		}
+
+		img {
+			width: 12px;
+			height: 16px;
+			margin-right: 5px;
+		}
+	}
+}
+
+.conflict-wrapper {
+	//border: 1px solid red;
+	background: $pink;
+	padding: 20px;
+	margin: 10px;
+	position: relative;
+
+	.conflict-acts-wrapper {
+		display: flex;
+		align-items: center;
+
+		.act-wrapper {
+			width: 200px;
+
+			&:first-of-type {
+				margin-left: 0;
+			}
+		}
+	}
+
+	button {
+		position: absolute;
+		right: 20px;
+		bottom: 30px;
+	}
+}
+
+.gap-wrapper {
+	//border: 1px solid yellow;
+	background: $yellow;
+	padding: 20px;
+	margin: 10px;
+
+	.gap-artists-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		height: 110px;
+		overflow: hidden;
+		margin-bottom: 10px;
+
+		&.open {
+			height: auto !important;
+		}
+	}
+
+	a {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+	.act-wrapper {
+		width: 200px;
+	}
+}
+
+.act-wrapper {
+	border: 1px solid black;
+	padding: 10px;
+	margin: 10px;
+	position: relative;
+
+	.act-location {
+		display: flex;
+		align-items:center;
+		color: $body-color;
+		
+		h4 {
+			font-family: 'Mont Bold';
+			font-weight: 200;
+		}
+
+		img {
+			width: 12px;
+			height: 16px;
+			margin-right: 5px;
+		}
+	}
+
+	.action {
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+		text-decoration: underline;
+		font-size: 12px;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	.conflict-wrapper button {
+		position: relative;
+		right: auto;
+		bottom: auto;
+		margin-left: 0;
+	}
+}
