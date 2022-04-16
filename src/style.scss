@@ -77,24 +77,37 @@ button {
 
 .background {
 	width: 100%;
+	height: 100vh;
 	position: absolute;
 	z-index: 1;
 	top: 0;
 	left: 0;
+	overflow: hidden;
 
 	img {
 		position: absolute;
+	}
+
+	#bg1 {
 		top: 0;
 		left: 0;
+		z-index: 2;
+	}
+
+	#bg2 {
+		right: 0;
+		top: 0;
 	}
 }
 
 .content {
 	width: 100%;
+	height: 100vh;
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 2;
+	z-index: 3;
+	overflow-y: scroll;
 }
 
 .day-header {
@@ -143,6 +156,8 @@ button {
 	width: 100%;
 	max-width: 800px;
 	margin: 20px auto;
+	padding: 20px;
+	box-sizing: border-box;
 
 	.schedule-item-wrapper {
 		border: 1px solid black;
@@ -262,5 +277,9 @@ button {
 		right: auto;
 		bottom: auto;
 		margin-left: 0;
+	}
+
+	#bg2 {
+		display: none;
 	}
 }

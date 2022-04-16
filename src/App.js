@@ -48,8 +48,8 @@ function App() {
   return (
     <div className="App">
       <div className="background">
-        <img src={bgGradientLeft} />
-        <img src={bgGradientRight} />
+        <img src={bgGradientLeft} id="bg1"/>
+        <img src={bgGradientRight} id="bg2" />
       </div>
       <div className="content">
         <div className="day-header">
