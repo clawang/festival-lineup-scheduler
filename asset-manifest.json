@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/coachella/static/css/main.792ad2c5.css",
+    "main.js": "/coachella/static/js/main.275bc068.js",
+    "static/js/787.68ea3bbf.chunk.js": "/coachella/static/js/787.68ea3bbf.chunk.js",
+    "static/media/homepage-gradient-hero-right.png": "/coachella/static/media/homepage-gradient-hero-right.88f28fb4fac6287f79cf.png",
+    "static/media/homepage-gradient-hero-left.png": "/coachella/static/media/homepage-gradient-hero-left.60147e65976df7e667fe.png",
+    "static/media/Fontfabric---Mont-Regular.otf": "/coachella/static/media/Fontfabric---Mont-Regular.9d041d850aa94116de68.otf",
+    "static/media/Fontfabric---Mont-Bold.otf": "/coachella/static/media/Fontfabric---Mont-Bold.830d900e231880d4971d.otf",
+    "static/media/Poppins-Light.ttf": "/coachella/static/media/Poppins-Light.7641a0f76ca9ef6c252c.ttf",
+    "static/media/Mont-HeavyDEMO.otf": "/coachella/static/media/Mont-HeavyDEMO.a1c041a8d8e27fc771db.otf",
+    "static/media/pin.png": "/coachella/static/media/pin.2e67d969a9ad413dcfda.png",
+    "static/media/SonderRegular.otf": "/coachella/static/media/SonderRegular.e552eac37cd9e94f84b3.otf",
+    "static/media/lineup.csv": "/coachella/static/media/lineup.1c7ad24ab5472b4b72d2.csv",
+    "static/media/logo.svg": "/coachella/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/coachella/index.html",
+    "main.792ad2c5.css.map": "/coachella/static/css/main.792ad2c5.css.map",
+    "main.275bc068.js.map": "/coachella/static/js/main.275bc068.js.map",
+    "787.68ea3bbf.chunk.js.map": "/coachella/static/js/787.68ea3bbf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.792ad2c5.css",
+    "static/js/main.275bc068.js"
+  ]
+}
