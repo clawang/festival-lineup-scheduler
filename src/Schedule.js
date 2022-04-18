@@ -146,7 +146,7 @@ function Gap(props) {
 					<a onClick={() => setOpen(!open)}>{open ? 'Collapse' : 'See All →'}</a>
 				</div>
 				:
-				<p>Maybe get some food or something idgaf</p>
+				<p>Try exploring the festival grounds or getting something to eat!</p>
 			}
 		</div>
 	);
