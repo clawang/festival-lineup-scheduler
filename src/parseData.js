@@ -6,7 +6,7 @@ const parseData = (str) => {
 		let obj = {};
 		headers.map((h,i)=> {
 			let str = d[i].trim();
-			obj[headers[i]] = str;
+			obj[headers[i].trim()] = str;
 		});
 		obj.id = index;
 		return obj;
@@ -31,8 +31,6 @@ const strToDate = (str) => {
 }
 
 const timeSortFunction = (a, b) => {
-	// let aDate = a.startTime.includes('AM') ? '1970/01/02 ' : '1970/01/01 ';
-	// let bDate = b.startTime.includes('AM') ? '1970/01/02 ' : '1970/01/01 ';
 	return strToDate(a.startTime) - strToDate(b.startTime);
 }
 
@@ -50,7 +48,6 @@ const findConflicts = (schedule) => {
 		if(strToDate(item.startTime) < endTime) {
 			item.conflict = true;
 			schedule[i-1].conflict = true;
-			//console.log(item);
 			let timeSlot = [];
 			timeSlot.push(schedule[i-1]);
 			timeSlot.push(item);
@@ -68,8 +65,6 @@ const splitActs = (a, b) => {
 	let endTime = strToDate(b.endTime);
 	let interval = (endTime - startTime) / 2;
 	let newEnd = startTime + Number(interval);
-	console.log(newEnd);
-	//console.log(Number(endMinutes) + interval);
 }
 
 const findGaps = (schedule) => {

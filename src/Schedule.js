@@ -2,21 +2,50 @@ import React, { useEffect, useState, useRef } from 'react';
 import {idsToSchedule, findConflicts, splitActs, findGaps, findArtistsWithinTime} from './parseData';
 import pin from './images/pin.png';
 
+const dayMap = {
+	0: {
+		name: 'Friday, April 22',
+		date: '04/22',
+	},
+	1: {
+		name: 'Saturday, April 23',
+		date: '04/23',
+	},
+	2: {
+		name: 'Sunday, April 24',
+		date: '04/24',
+	}
+}
+
 function Schedule(props) {
+
+	return (
+		<div className="schedule-wrapper">
+			<h2>Your Schedule</h2>
+			<Day key={0} date={0} data={props.data} scheduleIds={props.scheduleIds} setScheduleIds={props.setScheduleIds} editSchedule={props.editSchedule}/>
+			<Day key={1} date={1} data={props.data} scheduleIds={props.scheduleIds} setScheduleIds={props.setScheduleIds} editSchedule={props.editSchedule}/>
+			<Day key={2} date={2} data={props.data} scheduleIds={props.scheduleIds} setScheduleIds={props.setScheduleIds} editSchedule={props.editSchedule}/>
+		</div>
+	);
+}
+
+function Day(props) {
 
 	const [schedule, setSchedule] = useState([]);
 	const [conflicts, setConflicts] = useState({});
 	const [gaps, setGaps] = useState({});
 
 	useEffect(() => {
-		let tempSched = idsToSchedule(props.mySchedule, props.data);
-		let tempConflicts = findConflicts(tempSched);
-		let tempGaps = findGaps(tempSched);
-		console.log(tempGaps);
-		setSchedule(tempSched);
-		setConflicts(tempConflicts);
-		setGaps(tempGaps);
-	}, [props.mySchedule]);
+		let tempSched = idsToSchedule(props.scheduleIds, props.data);
+		tempSched = tempSched.filter(item => item.date === dayMap[props.date].date);
+		if(tempSched.length > 0) {
+			let conflicts = findConflicts(tempSched);
+			let tempGaps = findGaps(tempSched);
+			setSchedule(tempSched);
+			setConflicts(conflicts);
+			setGaps(tempGaps);
+		}
+	}, [props.scheduleIds]);
 
 	const createSchedule = () => {
 		let rows = [];
@@ -25,12 +54,20 @@ function Schedule(props) {
 				rows.push(<Gap 
 					key={gaps[i][0].concat(gaps[i][1])}
 					data={gaps[i]} 
+					day={props.date}
 					allActs={props.data} 
 					editSchedule={props.editSchedule} />);
 			}
-			if(act.conflict && conflicts.hasOwnProperty(i)) {
-				rows.push(<Conflict data={conflicts[i]} editSchedule={props.editSchedule} />);
-			} else if(!act.conflict) {
+			if(act.conflict && conflicts.hasOwnProperty(i) && !act.override) {
+				let key = String(conflicts[i][0].id);
+				key = key.concat(conflicts[i][1].id)
+				rows.push(<Conflict 
+					key={key}
+					data={conflicts[i]} 
+					schedule={schedule}
+					setSchedule={setSchedule}
+					editSchedule={props.editSchedule} />);
+			} else if(!act.conflict || act.override) {
 				rows.push(<ScheduleItem data={act} />);
 			}
 		});
@@ -41,8 +78,8 @@ function Schedule(props) {
 	}
 
 	return (
-		<div className="schedule-wrapper">
-			<h2>Your Schedule</h2>
+		<div className="schedule-day">
+			<h3>{dayMap[props.date].name}</h3>
 			{createSchedule()}
 		</div>
 	);
@@ -51,9 +88,14 @@ function Schedule(props) {
 function Conflict(props) {
 
 	const split = () => {
-		const firstAct = props.data[0];
-		const secondAct = props.data[1];
-		splitActs(firstAct, secondAct);
+		const firstActId = props.data[0].id;
+		const secondActId = props.data[1].id;
+		let tempSched = [...props.schedule];
+		const firstAct = tempSched.find(act => act.id === firstActId);
+		const secondAct = tempSched.find(act => act.id === secondActId);
+		firstAct.override = true;
+		secondAct.override = true;
+		props.setSchedule(tempSched);
 	}
 
 	return (
@@ -72,20 +114,23 @@ function Gap(props) {
 
 	const [artists, setArtists] = useState([]);
 	const [open, setOpen] = useState(false);
+	const [hidden, setHidden] = useState(false);
 
 	useEffect(() => {
-		let tempArtists = findArtistsWithinTime(props.data[0], props.data[1], props.allActs);
+		let dayActs = props.allActs.filter(act => act.date === dayMap[props.day].date);
+		let tempArtists = findArtistsWithinTime(props.data[0], props.data[1], dayActs);
 		setArtists(tempArtists);
 	}, [setArtists]);
 
 	return (
-		<div className="gap-wrapper">
+		<div className={"gap-wrapper" + (hidden ? ' hidden' : '')}>
+			<p onClick={() => setHidden(true)} id="close">X</p>
 			<h3>There's a gap in your schedule.</h3>
 			{artists.length > 0 ?
 				<div>
 					<p>Here are some artists playing within this time.</p>
 					<div className={"gap-artists-wrapper" + (open ? ' open' : '')}>
-						{artists.map(act => <Act data={act} editSchedule={props.editSchedule} />)}
+						{artists.map(act => <Act key={act.id} data={act} editSchedule={props.editSchedule} />)}
 					</div>
 					<a onClick={() => setOpen(!open)}>{open ? 'Collapse' : 'See All →'}</a>
 				</div>

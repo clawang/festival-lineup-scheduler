@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import logo from './logo.svg';
 import './style.scss';
 import lineup from './lineup.csv';
 import {parseData, extractProp} from './parseData';
@@ -40,7 +39,7 @@ function App() {
     if(tempSchedule.hasOwnProperty(id)) {
       delete tempSchedule[id];
     } else {
-      tempSchedule[id] = id;
+      tempSchedule[id] = {conflict: false, override: false};
     }
     setSchedule(tempSchedule);
   }
@@ -52,17 +51,29 @@ function App() {
         <img src={bgGradientRight} id="bg2" />
       </div>
       <div className="content">
+        <div className="nav-wrapper">
+          <h4 
+            onClick={(e) => setPage(0)} 
+            id='lineup' 
+            className={page === 0 ? 'selected' : ''}
+          >
+            Lineup
+          </h4>
+          <h4 
+            onClick={(e) => setPage(1)} 
+            id='schedule' 
+            className={page === 1 ? 'selected' : ''}
+          >
+            My Schedule
+          </h4>
+        </div>
         <div className="day-header">
           <h1>Coachella Scheduler</h1>
         </div> 
-        <div className="nav-wrapper">
-          <button onClick={(e) => setPage(0)}>Lineup</button>
-          <button onClick={(e) => setPage(1)}>My Schedule</button>
-        </div>
         {page === 0 ?
           <Lineup stages={stages} data={data} mySchedule={mySchedule} editSchedule={editSchedule} />
           :
-          <Schedule data={data} mySchedule={mySchedule} editSchedule={editSchedule} />
+          <Schedule data={data} scheduleIds={mySchedule} editSchedule={editSchedule} setScheduleIds={setSchedule} />
         }
       </div>
     </div>

@@ -6,6 +6,13 @@
 }
 
 @font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-SemiBold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Mont Heavy';
   src: url('./fonts/Mont-HeavyDEMO.otf');
   font-weight: bold;
@@ -43,15 +50,19 @@ $selection-color: rgba(158,222,219, 0.5);
 $body-color: #3a3a3a;
 $accent-color: #097a88;
 $subtitle-color: #727078;
+$background-color: #fffdf4;
 
 html {
 	cursor: url(https://media-prd.coachella.com/content/coachella-2022/cursor.png),auto;
+	background: $background-color;
 }
 
 h1 {
 	font-family: $accent-font;
 	font-weight: 100;
 	font-size: 5em;
+	//margin: 0.1em 0;
+	color: $body-color;
 }
 
 h2, h3, h4, {
@@ -71,7 +82,7 @@ button {
 	color: $body-color;
 	border: 2px solid $body-color;
 	background: transparent;
-	font-weight: 600;
+	font-weight: 800;
 	cursor: pointer;
 }
 
@@ -111,7 +122,7 @@ button {
 }
 
 .day-header {
-	margin: 100px 0 20px 0;
+	margin: 50px 0 20px 0;
 	text-align: center;
 }
 
@@ -119,15 +130,70 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 50px 0;
+	margin: 30px 0 50px;
+
+	h4 {
+		margin: 0 20px;
+		cursor: pointer;
+		position: relative;
+
+		&:before {
+			content: "";
+	    position: absolute;
+	    width: 100%;
+	    min-width: 85px;
+	    height: 10px;
+	    opacity: 0;
+	    bottom: -5px;
+	    left: 50%;
+	    -webkit-transform: translateX(-50%);
+	    transform: translateX(-50%);
+	    background-repeat: no-repeat;
+	    background-size: 100% 100%;
+	    z-index: -1;
+	    -webkit-clip-path: polygon(0 0,100% 0,0 50%,100% 100%,0 100%);
+	    clip-path: polygon(0 0,100% 0,0 50%,100% 100%,0 100%);
+	    -webkit-transition: all .5s ease;
+	    transition: all .5s ease;
+		}
+
+		&:hover:before, &.selected:before  {
+	    opacity: 1;
+	    -webkit-clip-path: polygon(0 0,100% 0,100% 50%,100% 100%,0 100%);
+	    clip-path: polygon(0 0,100% 0,100% 50%,100% 100%,0 100%);
+		}
+	}
+
+	#lineup:before {
+	  background-image: url('./images/nav-underline-lineup.png');
+	}
+
+	#schedule:before {
+		background-image: url('./images/nav-underline-schedule.png');
+	}
+}
+
+.day-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 0 50px;
+
+	button.selected {
+		background: $body-color;
+		color: white;
+	}
 }
 
 .lineup-wrapper {
-	display: flex;
 	margin: 20px auto;
 	width: 100%;
 	max-width: 1200px;
 	overflow-x: scroll;
+
+	.lineup {
+		display: flex;
+	}
 
 	.stage-wrapper {
 		margin: 0 10px;
@@ -145,11 +211,11 @@ button {
 		p {
 			font-size: 12px;
 		}
-	}
-}
 
-.selected {
-	background: $selection-color;
+		&.selected {
+			background: $selection-color;
+		}
+	}
 }
 
 .schedule-wrapper {
@@ -159,10 +225,15 @@ button {
 	padding: 20px;
 	box-sizing: border-box;
 
+	.schedule-day {
+		margin: 20px 0;
+		padding: 20px 0;
+	}
+
 	.schedule-item-wrapper {
 		border: 1px solid black;
 		padding: 10px;
-		margin: 10px;
+		margin: 10px 0;
 
 		.schedule-item-location {
 			display: flex;
@@ -216,6 +287,7 @@ button {
 	background: $yellow;
 	padding: 20px;
 	margin: 10px;
+	position: relative;
 
 	.gap-artists-wrapper {
 		display: flex;
@@ -237,12 +309,23 @@ button {
 	.act-wrapper {
 		width: 200px;
 	}
+
+	#close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		cursor: pointer;
+	}
+
+	&.hidden {
+		display: none;
+	}
 }
 
 .act-wrapper {
 	border: 1px solid black;
 	padding: 10px;
-	margin: 10px;
+	margin: 10px 5px;
 	position: relative;
 
 	.act-location {
@@ -281,5 +364,9 @@ button {
 
 	#bg2 {
 		display: none;
+	}
+
+	.act-wrapper {
+		padding-bottom: 20px;
 	}
 }
