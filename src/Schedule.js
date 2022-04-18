@@ -39,11 +39,12 @@ function Day(props) {
 		let tempSched = idsToSchedule(props.scheduleIds, props.data);
 		tempSched = tempSched.filter(item => item.date === dayMap[props.date].date);
 		if(tempSched.length > 0) {
-			let conflicts = findConflicts(tempSched);
+			let tempConflicts = findConflicts(tempSched);
 			let tempGaps = findGaps(tempSched);
 			setSchedule(tempSched);
-			setConflicts(conflicts);
+			setConflicts(tempConflicts);
 			setGaps(tempGaps);
+			console.log(tempConflicts);
 		}
 	}, [props.scheduleIds]);
 
@@ -63,7 +64,9 @@ function Day(props) {
 				key = key.concat(conflicts[i][1].id)
 				rows.push(<Conflict 
 					key={key}
-					data={conflicts[i]} 
+					index={i}
+					conflicts={conflicts}
+					setConflicts={setConflicts}
 					schedule={schedule}
 					setSchedule={setSchedule}
 					editSchedule={props.editSchedule} />);
@@ -88,13 +91,21 @@ function Day(props) {
 function Conflict(props) {
 
 	const split = () => {
-		const firstActId = props.data[0].id;
-		const secondActId = props.data[1].id;
+		const firstActId = props.conflicts[props.index][0].id;
+		const secondActId = props.conflicts[props.index][1].id;
 		let tempSched = [...props.schedule];
-		const firstAct = tempSched.find(act => act.id === firstActId);
-		const secondAct = tempSched.find(act => act.id === secondActId);
-		firstAct.override = true;
-		secondAct.override = true;
+		let tempConflicts = {...props.conflicts};
+		delete tempConflicts[props.index];
+		props.setConflicts(tempConflicts);
+		const conflictsArray = Object.values(tempConflicts);
+		if(conflictsArray.findIndex(c => c[0].id === firstActId || c[1].id === firstActId) < 0) {
+			const firstAct = tempSched.find(act => act.id === firstActId);
+			firstAct.override = true;
+		}
+		if(conflictsArray.findIndex(c => c[0].id === secondActId || c[1].id === secondActId) < 0) {
+			const secondAct = tempSched.find(act => act.id === secondActId);
+			secondAct.override = true;
+		}
 		props.setSchedule(tempSched);
 	}
 
@@ -102,8 +113,8 @@ function Conflict(props) {
 		<div className="conflict-wrapper">
 			<h3>These two acts conflict:</h3>
 			<div className="conflict-acts-wrapper">
-				<Act data={props.data[0]} context={1} editSchedule={props.editSchedule} />
-				<Act data={props.data[1]} context={1} editSchedule={props.editSchedule} />
+				<Act data={props.conflicts[props.index][0]} context={1} editSchedule={props.editSchedule} />
+				<Act data={props.conflicts[props.index][1]} context={1} editSchedule={props.editSchedule} />
 			</div>
 			<button onClick={split}>See both</button>
 		</div>
