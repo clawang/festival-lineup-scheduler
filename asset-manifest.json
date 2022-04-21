@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/festival-lineup-scheduler/static/css/main.e1f606f4.css",
-    "main.js": "/festival-lineup-scheduler/static/js/main.2f89ca62.js",
+    "main.css": "/festival-lineup-scheduler/static/css/main.69946e0d.css",
+    "main.js": "/festival-lineup-scheduler/static/js/main.8c33e65f.js",
     "static/js/787.68ea3bbf.chunk.js": "/festival-lineup-scheduler/static/js/787.68ea3bbf.chunk.js",
     "static/media/homepage-gradient-hero-right.png": "/festival-lineup-scheduler/static/media/homepage-gradient-hero-right.88f28fb4fac6287f79cf.png",
     "static/media/homepage-gradient-hero-left.png": "/festival-lineup-scheduler/static/media/homepage-gradient-hero-left.60147e65976df7e667fe.png",
@@ -14,12 +14,12 @@
     "static/media/SonderRegular.otf": "/festival-lineup-scheduler/static/media/SonderRegular.e552eac37cd9e94f84b3.otf",
     "static/media/lineup.csv": "/festival-lineup-scheduler/static/media/lineup.910fffebb41fd26171fb.csv",
     "index.html": "/festival-lineup-scheduler/index.html",
-    "main.e1f606f4.css.map": "/festival-lineup-scheduler/static/css/main.e1f606f4.css.map",
-    "main.2f89ca62.js.map": "/festival-lineup-scheduler/static/js/main.2f89ca62.js.map",
+    "main.69946e0d.css.map": "/festival-lineup-scheduler/static/css/main.69946e0d.css.map",
+    "main.8c33e65f.js.map": "/festival-lineup-scheduler/static/js/main.8c33e65f.js.map",
     "787.68ea3bbf.chunk.js.map": "/festival-lineup-scheduler/static/js/787.68ea3bbf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1f606f4.css",
-    "static/js/main.2f89ca62.js"
+    "static/css/main.69946e0d.css",
+    "static/js/main.8c33e65f.js"
   ]
 }
