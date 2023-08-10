@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/festival-lineup-scheduler/static/css/main.475a4a7a.css",
-    "main.js": "/festival-lineup-scheduler/static/js/main.b00f0489.js",
+    "main.js": "/festival-lineup-scheduler/static/js/main.3813b1e3.js",
     "static/js/787.68ea3bbf.chunk.js": "/festival-lineup-scheduler/static/js/787.68ea3bbf.chunk.js",
     "static/media/portola.jpg": "/festival-lineup-scheduler/static/media/portola.2d724e2e9335cd71170e.jpg",
     "static/media/homepage-gradient-hero-right.png": "/festival-lineup-scheduler/static/media/homepage-gradient-hero-right.88f28fb4fac6287f79cf.png",
@@ -26,11 +26,11 @@
     "static/media/portola-lineup.csv": "/festival-lineup-scheduler/static/media/portola-lineup.af2fa170c5e20e07e696.csv",
     "index.html": "/festival-lineup-scheduler/index.html",
     "main.475a4a7a.css.map": "/festival-lineup-scheduler/static/css/main.475a4a7a.css.map",
-    "main.b00f0489.js.map": "/festival-lineup-scheduler/static/js/main.b00f0489.js.map",
+    "main.3813b1e3.js.map": "/festival-lineup-scheduler/static/js/main.3813b1e3.js.map",
     "787.68ea3bbf.chunk.js.map": "/festival-lineup-scheduler/static/js/787.68ea3bbf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.475a4a7a.css",
-    "static/js/main.b00f0489.js"
+    "static/js/main.3813b1e3.js"
   ]
 }
