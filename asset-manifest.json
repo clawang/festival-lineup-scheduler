@@ -1,25 +1,36 @@
 {
   "files": {
-    "main.css": "/festival-lineup-scheduler/static/css/main.69946e0d.css",
-    "main.js": "/festival-lineup-scheduler/static/js/main.8c33e65f.js",
+    "main.css": "/festival-lineup-scheduler/static/css/main.dc5f0484.css",
+    "main.js": "/festival-lineup-scheduler/static/js/main.b00f0489.js",
     "static/js/787.68ea3bbf.chunk.js": "/festival-lineup-scheduler/static/js/787.68ea3bbf.chunk.js",
+    "static/media/portola.jpg": "/festival-lineup-scheduler/static/media/portola.2d724e2e9335cd71170e.jpg",
     "static/media/homepage-gradient-hero-right.png": "/festival-lineup-scheduler/static/media/homepage-gradient-hero-right.88f28fb4fac6287f79cf.png",
     "static/media/homepage-gradient-hero-left.png": "/festival-lineup-scheduler/static/media/homepage-gradient-hero-left.60147e65976df7e667fe.png",
+    "static/media/portola-footer.png": "/festival-lineup-scheduler/static/media/portola-footer.d5506179e4a9d9e15260.png",
+    "static/media/outsidelands.jpeg": "/festival-lineup-scheduler/static/media/outsidelands.b6449ed74417332df547.jpeg",
+    "static/media/portola-logo.png": "/festival-lineup-scheduler/static/media/portola-logo.1674668d0e7b4129abfe.png",
+    "static/media/coachella.jpeg": "/festival-lineup-scheduler/static/media/coachella.72125730e348c199c658.jpeg",
     "static/media/Fontfabric---Mont-Regular.otf": "/festival-lineup-scheduler/static/media/Fontfabric---Mont-Regular.9d041d850aa94116de68.otf",
     "static/media/Fontfabric---Mont-Bold.otf": "/festival-lineup-scheduler/static/media/Fontfabric---Mont-Bold.830d900e231880d4971d.otf",
     "static/media/Poppins-Light.ttf": "/festival-lineup-scheduler/static/media/Poppins-Light.7641a0f76ca9ef6c252c.ttf",
     "static/media/Poppins-SemiBold.ttf": "/festival-lineup-scheduler/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
     "static/media/Mont-HeavyDEMO.otf": "/festival-lineup-scheduler/static/media/Mont-HeavyDEMO.a1c041a8d8e27fc771db.otf",
+    "static/media/Gopher-Medium.ttf": "/festival-lineup-scheduler/static/media/Gopher-Medium.1d50bc038ca63f5091fc.ttf",
+    "static/media/Gopher-Bold.ttf": "/festival-lineup-scheduler/static/media/Gopher-Bold.85e4019a7e96431dc9bc.ttf",
+    "static/media/coachella-logo.png": "/festival-lineup-scheduler/static/media/coachella-logo.bd2c25b55050e39c4d79.png",
+    "static/media/Tablet Gothic W02 Regular.ttf": "/festival-lineup-scheduler/static/media/Tablet Gothic W02 Regular.87ea9cf75b0b5d568d2d.ttf",
     "static/media/pin.png": "/festival-lineup-scheduler/static/media/pin.2e67d969a9ad413dcfda.png",
     "static/media/SonderRegular.otf": "/festival-lineup-scheduler/static/media/SonderRegular.e552eac37cd9e94f84b3.otf",
     "static/media/lineup.csv": "/festival-lineup-scheduler/static/media/lineup.910fffebb41fd26171fb.csv",
+    "static/media/osl.csv": "/festival-lineup-scheduler/static/media/osl.2d4fbc42339c4f8ec21d.csv",
+    "static/media/portola-lineup.csv": "/festival-lineup-scheduler/static/media/portola-lineup.af2fa170c5e20e07e696.csv",
     "index.html": "/festival-lineup-scheduler/index.html",
-    "main.69946e0d.css.map": "/festival-lineup-scheduler/static/css/main.69946e0d.css.map",
-    "main.8c33e65f.js.map": "/festival-lineup-scheduler/static/js/main.8c33e65f.js.map",
+    "main.dc5f0484.css.map": "/festival-lineup-scheduler/static/css/main.dc5f0484.css.map",
+    "main.b00f0489.js.map": "/festival-lineup-scheduler/static/js/main.b00f0489.js.map",
     "787.68ea3bbf.chunk.js.map": "/festival-lineup-scheduler/static/js/787.68ea3bbf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.69946e0d.css",
-    "static/js/main.8c33e65f.js"
+    "static/css/main.dc5f0484.css",
+    "static/js/main.b00f0489.js"
   ]
 }
